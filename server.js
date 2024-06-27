@@ -89,7 +89,7 @@ const bree = new Bree({
   jobs: [
     {
       name: "schedule-check-user",
-      cron: "*/30 * * * *",
+      cron: "0 * * * *",
       timezone: "Asia/Ho_Chi_Minh",
     },
     // {
