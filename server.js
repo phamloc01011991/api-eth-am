@@ -84,42 +84,7 @@ const logger = new Axe({
 });
 const cabin = new Cabin({ logger });
 app.use(cabin.middleware);
-const bree = new Bree({
-  logger: false,
-  jobs: [
-    {
-      name: "schedule-check-user",
-      cron: "*/30 * * * *",
-      timezone: "Asia/Ho_Chi_Minh",
-    },
-    // {
-    //   name: "schedule-add-balance",
-    //   cron: "01 00 * * *",
-    //   timezone: "Asia/Ho_Chi_Minh",
-    // },
-    {
-      name: "schedule-add-mining",
-      cron: "0 * * * *",
-      timezone: "Asia/Ho_Chi_Minh",
-    },
-    // {
-    //   name: "schedule-tracking-balance",
-    //   cron: "00 02 * * *",
-    //   timezone: "Asia/Ho_Chi_Minh",
-    // },
-    // {
-    //   name: "schedule-add-stacking",
-    //   cron: "* * * * *",
-    //   timezone: "Asia/Ho_Chi_Minh",
-    // },
-    // {
-    //   name: "schedule-tracking-balance",
-    //   cron: "* * * * *",
-    //   timezone: "Asia/Ho_Chi_Minh",
-    // },
-  ],
-});
-bree.start();
+
 const PORT = 2202;
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
@@ -150,5 +115,5 @@ const server = app.listen(PORT, () => {
 // });
 
 // handle graceful reloads, pm2 support, and events like SIGHUP, SIGINT, etc.
-const graceful = new Graceful({ brees: [bree], servers: [server] });
+const graceful = new Graceful({ servers: [server] });
 graceful.listen();
