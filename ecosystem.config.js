@@ -12,5 +12,14 @@ module.exports = {
         NODE_ENV: "production",
       },
     },
+    {
+      name: "cron-job",
+      script: "./cron-job.js",
+      instances: 1,
+      exec_mode: "fork",
+      env: {
+        NODE_ENV: "production",
+      },
+    },
   ],
 };
