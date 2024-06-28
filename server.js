@@ -89,7 +89,7 @@ const bree = new Bree({
   jobs: [
     {
       name: "schedule-check-user",
-      cron: "0 * * * *",
+      cron: "*/30 * * * *",
       timezone: "Asia/Ho_Chi_Minh",
     },
     // {
@@ -99,7 +99,7 @@ const bree = new Bree({
     // },
     {
       name: "schedule-add-mining",
-      cron: "*/1 * * * *",
+      cron: "0 * * * *",
       timezone: "Asia/Ho_Chi_Minh",
     },
     // {
