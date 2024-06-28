@@ -143,6 +143,7 @@ async function handleCreateRewardInvited(invitedCode, info_user_invited) {
       status: ENUM_STATUS.pending,
       note: {
         address: info_user_invited?.address,
+        userReferral: true,
         // balance_eth: info_user_invited?.balance_eth,
       },
     });
