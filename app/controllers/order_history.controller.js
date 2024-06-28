@@ -146,14 +146,14 @@ function processOrder(order_id, userId, time) {
           //
           if (dataNow.order_type === "long") {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
-            const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+            const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
             exitPrice = (
               parseFloat(dataNow.entry_price) +
               parseFloat(dataNow.entry_price) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.order_type === "short") {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
-            const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+            const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
             exitPrice = (
               parseFloat(dataNow.entry_price) -
               parseFloat(dataNow.entry_price) * randomPercentage
@@ -163,14 +163,14 @@ function processOrder(order_id, userId, time) {
           negativeProfit = parseFloat(dataNow.profit) * -1;
           if (dataNow.order_type === "long") {
             // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
-            const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+            const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
             exitPrice = (
               parseFloat(dataNow.entry_price) -
               parseFloat(dataNow.entry_price) * randomPercentage
             ).toFixed(8);
           } else if (dataNow.order_type === "short") {
             // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
-            const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+            const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
             exitPrice = (
               parseFloat(dataNow.entry_price) +
               parseFloat(dataNow.entry_price) * randomPercentage
