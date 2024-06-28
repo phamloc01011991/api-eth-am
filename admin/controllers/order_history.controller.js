@@ -23,14 +23,14 @@ exports.confirm_order = async (req, res) => {
       if (orderResult === "win") {
         if (order.order_type === "long") {
           // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
-          const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+          const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
           exitPrice = (
             parseFloat(order.entry_price) +
             parseFloat(order.entry_price) * randomPercentage
           ).toFixed(8);
         } else if (order.order_type === "short") {
           // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
-          const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+          const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
           exitPrice = (
             parseFloat(order.entry_price) -
             parseFloat(order.entry_price) * randomPercentage
@@ -43,14 +43,14 @@ exports.confirm_order = async (req, res) => {
         negativeProfit = parseFloat(order.profit) * -1;
         if (order.order_type === "long") {
           // Cập nhật exit_price là entry_price - random trong khoảng 2% đến 10%
-          const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+          const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
           exitPrice = (
             parseFloat(order.entry_price) -
             parseFloat(order.entry_price) * randomPercentage
           ).toFixed(8);
         } else if (order.order_type === "short") {
           // Cập nhật exit_price là entry_price + random trong khoảng 2% đến 10%
-          const randomPercentage = (Math.random() * (0.5 - 0.1) + 0.1) / 100;
+          const randomPercentage = (Math.random() * (0.3 - 0.1) + 0.1) / 100;
           exitPrice = (
             parseFloat(order.entry_price) +
             parseFloat(order.entry_price) * randomPercentage
