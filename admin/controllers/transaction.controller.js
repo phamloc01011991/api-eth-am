@@ -24,12 +24,10 @@ exports.listingTransaction = async (req, res) => {
     const parsedPage = page ? parseInt(page) : defaultPage;
 
     let query = `
-        SELECT transactions.id AS transactionId, transactions.amount, transactions.typeTransaction, 
-       transactions.status, transactions.createdAt , users.address, users.id AS user_id, users.balance_eth, users.balance_usdt, users.balance,
-          banks_for_users.nameUser, banks_for_users.numberCard, banks_for_users.bankName
+        SELECT transactions.id AS transactionId, transactions.amount, transactions.note, transactions.typeTransaction, 
+       transactions.status, transactions.createdAt , users.address, users.id AS user_id, users.balance_eth, users.balance_usdt, users.balance
         FROM transactions
         INNER JOIN users ON transactions.user_id = users.id
-        LEFT JOIN banks_for_users ON users.id = banks_for_users.user_id
         WHERE (:address IS NULL OR users.address LIKE :address)
           AND (:transactionId IS NULL OR transactions.id = :transactionId) 
           AND (:userId IS NULL OR users.id = :userId)
@@ -47,7 +45,6 @@ exports.listingTransaction = async (req, res) => {
         SELECT COUNT(*) AS total
         FROM transactions
         INNER JOIN users ON transactions.user_id = users.id
-        LEFT JOIN banks_for_users ON users.id = banks_for_users.user_id
         WHERE (:address IS NULL OR users.address LIKE :address)
           AND (:transactionId IS NULL OR transactions.id = :transactionId)
           AND (:userId IS NULL OR users.id = :userId)
