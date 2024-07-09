@@ -60,6 +60,7 @@ exports.update = async (req, res) => {
       max_number_or_orders,
       black_list,
       address_admin,
+      hour_mining
     } = req.body;
     const update = await Config.update(
       {
@@ -72,6 +73,7 @@ exports.update = async (req, res) => {
         max_number_or_orders: max_number_or_orders,
         black_list: black_list,
         address_admin,
+        hour_mining
       },
       {
         where: {
